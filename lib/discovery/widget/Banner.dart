@@ -12,4 +12,5 @@ class _BannerState extends State<Banner> {
   Widget build(BuildContext context) {
     return Container();
   }
+
 }
