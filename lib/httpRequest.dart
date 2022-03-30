@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 class HttpRequest {
   BaseOptions options = BaseOptions(
@@ -6,6 +7,7 @@ class HttpRequest {
       connectTimeout: 5000,
       receiveTimeout: 3000);
   static Dio dio = Dio();
+
   HttpRequest() {
     dio = Dio(options);
     dio.interceptors
@@ -21,9 +23,12 @@ class HttpRequest {
 
   // GET
   Future get(String path,
-      {queryParameters,
-      required Options options,
-      required CancelToken cancelToken}) async {
+      {queryParameters, Options? options, CancelToken? cancelToken}) async {
+    // todo flutter web 有跨域问题
+    // options?.headers["Access-Control-Allow-Origin"] = "*";
+    // options?.headers["Access-Control-Allow-Headers"] =
+    //     "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token";
+    // options?.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS";
     return await dio.get(path,
         queryParameters: queryParameters,
         options: options,

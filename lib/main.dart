@@ -1,43 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+// import 'package:flutter_redux/flutter_redux.dart';
 import 'package:fluttertest/home/home.dart';
+import 'package:fluttertest/redux/appstate.dart';
+import 'package:redux/redux.dart';
 
 void main() {
-  runApp(SampleApp());
+  runApp(SampleApp(
+    store: Store<AppState>(appReducer, initialState: AppState(banners: [])),
+  ));
 }
 
 class SampleApp extends StatelessWidget {
+  final Store<AppState> store;
+
+  const SampleApp({required this.store});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Music App',
-      theme: ThemeData(
-        primaryColor: const Color(0xFFDB2C1F),
-        primaryTextTheme: const TextTheme(
-            subtitle1: TextStyle(
-                color: Colors.transparent,
-                decoration: TextDecoration.none,
-                height: 1.5)),
-        primaryIconTheme: const IconThemeData(color: Colors.black),
-        scaffoldBackgroundColor: Colors.white,
-        appBarTheme: const AppBarTheme(
-          color: Colors.transparent,
-          elevation: 0.0,
-          titleTextStyle: TextStyle(color: Colors.black, fontSize: 15),
-
-          iconTheme: IconThemeData(color: Colors.black),
+    return StoreProvider<AppState>(
+      store: store,
+      child: MaterialApp(
+        title: 'Music App',
+        theme: ThemeData(
+          primaryColor: const Color(0xFFDB2C1F),
+          primaryTextTheme: const TextTheme(
+              subtitle1: TextStyle(
+                  color: Colors.transparent,
+                  decoration: TextDecoration.none,
+                  height: 1.5)),
+          primaryIconTheme: const IconThemeData(color: Colors.black),
+          scaffoldBackgroundColor: Colors.white,
+          appBarTheme: const AppBarTheme(
+            color: Colors.transparent,
+            elevation: 0.0,
+            titleTextStyle: TextStyle(color: Colors.black, fontSize: 15),
+            iconTheme: IconThemeData(color: Colors.black),
+          ),
+          tabBarTheme: const TabBarTheme(
+              indicatorSize: TabBarIndicatorSize.label,
+              labelColor: Color(0xFFdb2c1f),
+              unselectedLabelColor: Colors.black),
+          disabledColor: Color(0xFF7f7f7),
+          indicatorColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          // debug
         ),
-        tabBarTheme: const TabBarTheme(
-            indicatorSize: TabBarIndicatorSize.label,
-            labelColor: Color(0xFFdb2c1f),
-            unselectedLabelColor: Colors.black),
-        disabledColor: Color(0xFF7f7f7),
-        indicatorColor: Colors.transparent,
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-        // debug
+        home: Home(),
       ),
-      home: Home(),
     );
   }
 }

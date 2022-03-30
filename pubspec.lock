@@ -57,13 +57,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
-  cookie_jar:
-    dependency: transitive
-    description:
-      name: cookie_jar
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.1"
   crypto:
     dependency: transitive
     description:
@@ -84,7 +77,7 @@ packages:
       name: dio
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.2"
+    version: "3.0.10"
   english_words:
     dependency: "direct main"
     description:
@@ -131,7 +124,7 @@ packages:
       name: flutter_redux
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.4"
+    version: "0.7.0"
   flutter_sticky_header:
     dependency: "direct main"
     description:
@@ -274,7 +267,7 @@ packages:
       name: redux
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0"
+    version: "4.0.0+3"
   shared_preferences:
     dependency: "direct main"
     description:
