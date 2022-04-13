@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+
 // import 'package:flutter_redux/flutter_redux.dart';
 import 'package:fluttertest/home/home.dart';
 import 'package:fluttertest/redux/appstate.dart';
@@ -7,7 +8,13 @@ import 'package:redux/redux.dart';
 
 void main() {
   runApp(SampleApp(
-    store: Store<AppState>(appReducer, initialState: AppState(banners: [])),
+    store: Store<AppState>(appReducer,
+        initialState: AppState(
+            banners: [],
+            recommendPlayList: [],
+            newAlbum: [],
+            newSong: [],
+            showNewSong: false)),
   ));
 }
 

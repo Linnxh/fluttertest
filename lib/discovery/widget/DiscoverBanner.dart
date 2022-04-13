@@ -145,13 +145,6 @@ class _BannerState extends State<DiscoverBanner> {
                   .map((banner) => BannerItem(banner["imgUrl"]))
                   .toList();
               store.dispatch(SetBannerAction(bannerList));
-              // setState(() {
-              //   _banners = bannerList;
-              //   addBanners
-              //     ..add(_banners[_banners.length - 1])
-              //     ..addAll(_banners)
-              //     ..add(_banners[0]);
-              // });
               _setTimer();
             });
           },

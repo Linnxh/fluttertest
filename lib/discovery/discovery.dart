@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertest/commonwidgets/Customicons.dart';
-import 'package:fluttertest/discovery/CategoryButton.dart';
+import 'package:fluttertest/discovery/widget/CategoryButton.dart';
+import 'package:fluttertest/discovery/widget/NewAlbumAndSong.dart';
+import 'package:fluttertest/discovery/widget/RecommendPlayList.dart';
 import 'package:fluttertest/discovery/widget/DiscoverBanner.dart';
 
 class Discovery extends StatelessWidget {
@@ -18,7 +20,14 @@ class Discovery extends StatelessWidget {
       ),
       body: CustomScrollView(
         physics: BouncingScrollPhysics(),
-        slivers: <Widget>[DiscoverBanner(), CategoryButton()],
+        slivers: <Widget>[
+          const DiscoverBanner(), // 轮播图
+          CategoryButton(), // 分类
+          const RecommendPlayListHeader(), // 推荐歌单头部
+          RecommendPlayListGrid(), // 推荐歌单列表
+          const NewAlbumAndSongHeader(),
+          const NewAlbumGrid()
+        ],
       ),
     );
   }
