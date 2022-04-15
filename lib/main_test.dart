@@ -12,15 +12,38 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Flutter Demo2'),
         ),
-        body: HomeContent(),
+        body: Container(child: Text("ssssss"),),
       ),
+      routes: {
+        '/test': (context) => HomeContent2(),
+        '/test2': (context) => HomeContent3(),
+      },
       theme: ThemeData(primarySwatch: Colors.blue),
     );
   }
 }
 
+///
+// class HomePage extends StatefulWidget {
+//   const HomePage({Key? key}) : super(key: key);
+//
+//   @override
+//   State<HomePage> createState() => _HomePageState();
+// }
+//
+// class _HomePageState extends State<HomePage> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Text("sssss");
+//   }
+// }
+
+/// *********************************以上是有状态组件的用法 输入 stful*********************************
+
+/// *********************************以下是无状态组件的用法*********************************
+
 /// listview 列表 item 是card组件
-class HomeContent extends StatelessWidget {
+class HomeContent5 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -42,24 +65,41 @@ class HomeContent extends StatelessWidget {
                 ),
               ),
               ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://image.meipinshu.com/resources/2022/3/31/1648712100221.jpg"),
+                ),
                 title: Text("zhangsan"),
                 subtitle: Text("engineer"),
               ),
               Container(
                 margin: EdgeInsets.all(10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "tel:",
-                      style: TextStyle(color: Colors.pink),
-                    ),
+                child: Column(
+                  /// 纵向布局
+                  children: [
                     Container(
-                        margin: EdgeInsets.all(10),
-                        child: Text("186677767676")),
+                      alignment: Alignment.centerLeft,
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            "https://image.meipinshu.com/resources/2022/3/31/1648712100221.jpg"),
+                      ),
+                    ),
+                    Row(
+                      /// 横向布局
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "tel:",
+                          style: TextStyle(color: Colors.pink),
+                        ),
+                        Container(
+                            margin: EdgeInsets.all(10),
+                            child: Text("186677767676")),
+                      ],
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
